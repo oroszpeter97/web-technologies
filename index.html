@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Recipe Site — Home</title>
+	<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+	<header>
+		<h1>Recipe Site</h1>
+		<img src="resources/header.jpg" alt="Recipe Site" style="max-width:100%; height:auto; display:block;">
+	</header>
+
+	<nav aria-label="Main navigation">
+		<ul style="margin:0; padding:0; list-style:none; display:flex; gap:1rem;">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="recipes.html">View Recipes</a></li>
+			<li><a href="add-recipes.html">Add Recipe</a></li>
+			<li><a href="remove-recipe.html">Remove Recipe</a></li>
+			<li><a href="tips.html">Cooking Tips</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<article>
+			<header>
+				<h2>Welcome</h2>
+			</header>
+
+			<section>
+				<h3>About this site</h3>
+				<p>This is a simple recipe site where you can browse recipes, read ingredients and instructions, and add your own recipes to share with others.</p>
+			</section>
+
+			<section>
+				<h3>How to use</h3>
+				<ul>
+					<li>Click "View Recipes" to see submitted recipes.</li>
+					<li>Click "Add Recipe" to submit a new recipe (title, ingredients, instructions).</li>
+					<li>This site focuses on semantic HTML structure and basic styling.</li>
+				</ul>
+			</section>
+
+			<section>
+				<figure>
+					<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
+						<iframe
+							src="https://www.youtube.com/embed/P6W8kwmwcno"
+							title="Cooking Basics"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+							style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
+						</iframe>
+					</div>
+					<figcaption>Cooking Basics — a short introduction to fundamental cooking techniques.</figcaption>
+				</figure>
+			</section>
+
+			<footer>
+			</footer>
+		</article>
+
+		<aside aria-label="Related">
+			<h4>Quick links</h4>
+			<p><a href="recipes.html">Browse recipes</a> · <a href="add-recipes.html">Submit a recipe</a> · <a href="remove-recipe.html">Remove a recipe</a></p>
+		</aside>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 Simple Recipe</p>
+	</footer>
+</body>
+</html>

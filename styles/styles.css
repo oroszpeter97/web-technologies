@@ -1,0 +1,137 @@
+:root{
+	--accent:#0b74de;
+	--muted:#f1f1f1;
+	--dark:#222;
+	--content-max:1100px;
+}
+
+*{box-sizing:border-box}
+body {
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+	color:#222;
+	background: #fffaf7;
+}
+
+header, nav, footer, aside, article, section { padding: 1rem; }
+
+/* Header / Nav / Footer */
+header {
+	background: var(--accent);
+	color: #fff;
+}
+nav { background: var(--muted); }
+footer { background: var(--dark); color: #fff; text-align: center; padding: 0.75rem 1rem; }
+
+/* Layout */
+main {
+	max-width: var(--content-max);
+	margin: 1rem auto;
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	gap: 1rem;
+	padding: 0 1rem;
+}
+main.single-column {
+	grid-template-columns: 1fr;
+}
+
+/* Article styling */
+article {
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+	overflow: hidden;
+}
+article header { border-bottom: 1px solid #eee; }
+article section { padding: 1rem; }
+article h3 { margin-top: 0; }
+
+/* Aside styling */
+aside {
+	background: #fffefc;
+	border-left: 4px solid var(--accent);
+	border-radius: 6px;
+	padding: 1rem;
+}
+
+/* Lists */
+ul, ol { margin: 0 0 1rem 1.25rem; }
+
+/* Recipe list */
+.recipe-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.5rem;
+}
+
+.recipe-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.6rem 0.75rem;
+	border: 1px solid #eee;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.recipe-item.selected {
+	border-color: #c62828;
+	background: #fff6f6;
+}
+
+.recipe-title {
+	font-weight: 600;
+}
+
+/* toggle button */
+.toggle-btn {
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 0.35rem 0.6rem;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 0.9rem;
+}
+.toggle-btn[aria-pressed="true"] {
+	background: var(--accent);
+	color: #fff;
+	border-color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 800px){
+	main { grid-template-columns: 1fr; }
+	nav ul { flex-wrap: wrap; }
+}
+
+/* Invalid fields */
+input.invalid,
+textarea.invalid {
+	border: 2px solid #c62828;
+	outline: none;
+	background: #fff6f6;
+}
+
+.form-error {
+	background: #fff0f0;
+	color: #9b1c1c;
+	border: 1px solid #f1c0c0;
+	padding: 0.5rem 0.75rem;
+	margin-bottom: 0.5rem;
+	border-radius: 4px;
+}
+
+/* success feedback */
+.form-success {
+	background: #f0fff6;
+	color: #1b5e20;
+	border: 1px solid #b7f0c6;
+	padding: 0.5rem 0.75rem;
+	margin-bottom: 0.5rem;
+	border-radius: 4px;
+}

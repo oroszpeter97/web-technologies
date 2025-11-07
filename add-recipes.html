@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Recipe Site — Add Recipe</title>
+	<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+	<header>
+		<h1>Recipe Site</h1>
+		<img src="resources/header.jpg" alt="Recipe Site" style="max-width:100%; height:auto; display:block;">
+	</header>
+
+	<nav aria-label="Main navigation">
+		<ul style="margin:0; padding:0; list-style:none; display:flex; gap:1rem;">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="recipes.html">View Recipes</a></li>
+			<li><a href="add-recipes.html">Add Recipe</a></li>
+			<li><a href="remove-recipe.html">Remove Recipe</a></li>
+			<li><a href="tips.html">Cooking Tips</a></li>
+		</ul>
+	</nav>
+
+	<main class="single-column">
+		<article>
+			<header>
+				<h2>Submit a Recipe</h2>
+				<p>Provide the recipe details below.</p>
+			</header>
+
+			<section>
+				<form id="add-recipe-form" action="#" method="post" aria-label="Add recipe form" novalidate>
+					<div id="form-error" class="form-error" role="alert" aria-live="assertive" style="display:none;"></div>
+
+					<div>
+						<label for="title">Recipe title</label><br>
+						<input id="title" name="title" type="text" required placeholder="e.g. Lemon Pancakes" style="width:100%; max-width:600px;">
+					</div>
+
+					<div>
+						<label for="creation-date">Creation date (optional)</label><br>
+						<input id="creation-date" name="creation-date" type="date" style="width:100%; max-width:260px;">
+					</div>
+
+					<div>
+						<label for="ingredients">Ingredients (one per line)</label><br>
+						<textarea id="ingredients" name="ingredients" rows="6" placeholder="1 cup flour&#10;1 egg&#10;..." style="width:100%; max-width:600px;"></textarea>
+					</div>
+
+					<div>
+						<label for="instructions">Instructions (one step per line)</label><br>
+						<textarea id="instructions" name="instructions" rows="8" placeholder="Mix dry ingredients...&#10;Cook on pan..." style="width:100%; max-width:600px;"></textarea>
+					</div>
+
+					<div>
+						<label for="notes">Notes (optional)</label><br>
+						<textarea id="notes" name="notes" rows="3" placeholder="Tips or substitutions..." style="width:100%; max-width:600px;"></textarea>
+					</div>
+
+					<div style="margin-top:0.5rem;">
+						<button type="submit">Submit recipe</button>
+						<button type="reset">Reset</button>
+					</div>
+				</form>
+			</section>
+
+			<footer>
+				<p>Form available for submitting recipes.</p>
+			</footer>
+		</article>
+
+		<aside aria-label="Help">
+			<h4>Form tips</h4>
+			<p>Enter each ingredient or instruction on a separate line.</p>
+		</aside>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 Simple Recipe — Student Assignment</p>
+	</footer>
+
+	<script src="scripts/validate-add.js"></script>
+</body>
+</html>

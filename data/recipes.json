@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Lemon Pancakes",
+    "creation-date": "2016-04-20",
+    "ingredients": [
+      "1 cup all-purpose flour",
+      "2 tbsp sugar",
+      "1 tsp baking powder",
+      "Pinch of salt",
+      "1 cup milk",
+      "1 egg",
+      "1 tbsp melted butter",
+      "Zest and juice of 1 lemon"
+    ],
+    "instructions": [
+      "Mix dry ingredients in a bowl.",
+      "Whisk milk, egg, melted butter, lemon juice and zest in another bowl.",
+      "Fold wet into dry until just combined; do not overmix.",
+      "Heat a non-stick pan over medium heat and cook 2–3 minutes per side until golden.",
+      "Serve warm with syrup or lemon slices."
+    ],
+    "notes": [
+      "Let the batter rest 10 minutes for fluffier pancakes.",
+      "Replace milk with buttermilk for extra tang."
+    ]
+  },
+  {
+    "name": "Garlic Tomato Pasta",
+    "creation-date": "2009-07-15",
+    "ingredients": [
+      "200g pasta (penne or spaghetti)",
+      "2 tbsp olive oil",
+      "2 cloves garlic, minced",
+      "1 can (400g) crushed tomatoes",
+      "Salt and pepper to taste",
+      "Red pepper flakes (optional)",
+      "Fresh basil and grated Parmesan to serve"
+    ],
+    "instructions": [
+      "Cook pasta according to package directions; reserve 1/2 cup cooking water.",
+      "Heat oil, sauté garlic until fragrant (do not burn).",
+      "Add crushed tomatoes and simmer 8–10 minutes; season to taste.",
+      "Toss pasta with sauce, adding reserved water to loosen if needed.",
+      "Serve topped with basil and Parmesan."
+    ],
+    "notes": [
+      "Add a splash of cream for a richer sauce.",
+      "Finish cooking pasta in the sauce for better flavor absorption."
+    ]
+  },
+  {
+    "name": "Avocado Toast with Cherry Tomatoes",
+    "creation-date": "2018-06-10",
+    "ingredients": [
+      "2 slices whole-grain bread",
+      "1 ripe avocado",
+      "Handful cherry tomatoes, halved",
+      "1 tsp lemon juice",
+      "Salt and black pepper",
+      "Olive oil (optional)"
+    ],
+    "instructions": [
+      "Toast the bread to desired crispness.",
+      "Mash avocado with lemon juice, salt and pepper.",
+      "Spread avocado on toast and top with cherry tomatoes.",
+      "Drizzle a little olive oil and serve immediately."
+    ],
+    "notes": [
+      "Add red pepper flakes or a poached egg for extra protein.",
+      "Use ripe but firm avocados for best texture."
+    ]
+  },
+  {
+    "name": "Banana Bread (Quick Loaf)",
+    "creation-date": "2012-11-03",
+    "ingredients": [
+      "3 ripe bananas, mashed",
+      "1/3 cup melted butter",
+      "1/2 cup sugar",
+      "1 egg, beaten",
+      "1 tsp vanilla extract",
+      "1 tsp baking soda",
+      "1 1/2 cups all-purpose flour",
+      "Pinch of salt"
+    ],
+    "instructions": [
+      "Preheat oven to 175°C (350°F). Grease a loaf pan.",
+      "Mix mashed bananas with melted butter, sugar, egg and vanilla.",
+      "Stir in baking soda, salt, then flour until just combined.",
+      "Pour batter into pan and bake 50–60 minutes until a toothpick comes out clean.",
+      "Cool before slicing."
+    ],
+    "notes": [
+      "Fold in chopped nuts or chocolate chips if desired.",
+      "Store wrapped at room temperature for 2-3 days."
+    ]
+  },
+  {
+    "name": "Simple Tomato Soup",
+    "creation-date": "2005-01-25",
+    "ingredients": [
+      "1 tbsp olive oil",
+      "1 onion, chopped",
+      "2 cloves garlic, minced",
+      "1 can (400g) crushed tomatoes",
+      "2 cups vegetable or chicken stock",
+      "Salt and pepper to taste",
+      "Fresh basil or cream to serve (optional)"
+    ],
+    "instructions": [
+      "Heat oil in a pot and sauté onion until soft.",
+      "Add garlic and cook briefly.",
+      "Stir in crushed tomatoes and stock; bring to a simmer for 15–20 minutes.",
+      "Blend until smooth with an immersion blender or in batches.",
+      "Season and serve with basil or a swirl of cream."
+    ],
+    "notes": [
+      "Add a pinch of sugar if tomatoes are too acidic.",
+      "Serve with grilled cheese or crusty bread."
+    ]
+  }
+]

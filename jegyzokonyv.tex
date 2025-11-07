@@ -1,0 +1,176 @@
+\documentclass{article}
+
+\usepackage[hungarian]{babel}
+\usepackage{mathptmx}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+
+\titleformat{\section}
+  {\normalfont\fontsize{14}{16}\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{}
+
+\begin{document}
+\onehalfspacing
+\selectlanguage{hungarian}
+\justifying 
+
+\begin{titlepage}
+    \centering
+    \vspace*{0.25\textheight}
+    {\fontsize{64}{32}\bfseries Jegyzőkönyv \par}
+    \vspace{1.5em}
+    {\fontsize{25}{64}\normalfont Web-technológiák \par}
+    \vspace{1em}
+    {\fontsize{25}{32}\normalfont Féléves feladat \par}
+    \vspace{1em}
+    {\fontsize{25}{32}\normalfont Recept Weboldal \par}
+    \vspace*{0.20\textheight}
+
+    \begin{flushright}
+        \begin{tabular}{@{}l@{}}
+            {\fontsize{14}{14}\normalfont Készítette: Orosz Péter} \\
+            {\fontsize{14}{14}\normalfont Neptun kód: WO02D7} \\
+            {\fontsize{14}{14}\normalfont Dátum: 2025. December} \\
+        \end{tabular}
+    \end{flushright}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Bevezetés}
+Ez a jegyzőkönyv röviden bemutatja a projekt célját és felépítését. A projekt egy egyszerű receptoldal, amely lehetővé teszi receptek megtekintését, hozzáadását és eltávolítását.
+
+\section{Projekt leírása}
+\subsection{Cél}
+A cél egy szemantikusan jól felépített, hozzáférhető és egyszerűen használható receptkezelő weboldal készítése, amely oktatási céllal készült a Web-technológiák kurzushoz.
+
+\subsection{Funkciók}
+\begin{itemize}
+  \item Receptek megtekintése (lista, részletes nézet).
+  \item Új recept beküldése (cím, hozzávalók, leírás).
+  \item Receptek eltávolítása.
+  \item Beágyazott oktatóvideó a főoldalon.
+\end{itemize}
+
+\subsection{Mappa- és fájlszerkezet}
+Rövid áttekintés a fontos fájlokról:
+\begin{itemize}
+  \item index.html — kezdőoldal
+  \item recipes.html — receptlista
+  \item add-recipes.html — recept hozzáadása
+  \item remove-recipe.html — recept eltávolítása
+  \item styles/styles.css — alap stílusok
+  \item resources/ — képek és egyéb erőforrások
+\end{itemize}
+
+\section{Használati útmutató}
+A weboldal használata egyszerű:
+\begin{enumerate}
+  \item Indítsa el a szervert a projekt gyökérkönyvtárában:
+        \texttt{node server.js}
+  \item A "View Recipes" oldalon böngészheti a meglévő recepteket.
+  \item Az "Add Recipe" oldalon töltsön ki minden szükséges mezőt, majd küldje be a receptet.
+  \item A "Remove Recipe" oldalon törölheti a nem kívánt bejegyzéseket.
+\end{enumerate}
+
+\section{Műszaki megjegyzések}
+\subsection{Elérhetőség és szemantika}
+A HTML szemantikai elemeket (header, nav, main, article, aside, footer) használjuk a jobb strukturáltságért és akadálymentességért. A képekhez és videókhoz alternatív leírásokat és feliratokat adtunk meg ahol szükséges.
+
+\subsection{Reszponzivitás}
+A beágyazott videó és a képek rugalmasan skálázódnak, így a tartalom különböző képernyőméreteken is olvasható marad.
+
+\subsection{Fejlesztési megjegyzések}
+A projekt egyszerű, statikus fájlokra épül; további funkciók (pl. adatbázis, szerveroldali feldolgozás) szükség esetén hozzáadhatók.
+
+\section{Fontos kódrészletek}
+Az alábbi rövid kódrészletek a projekt működéséhez gyakran használt mintákat mutatják: egyszerű Node/Express szerver, kliens oldali recept beküldés és törlés fetch segítségével.
+
+\subsection{server.js — egyszerű Express szerver és API}
+\begin{verbatim}
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+app.use(express.static('.')); // statikus fájlok kiszolgálása a projekt gyökérből
+
+let recipes = []; // egyszerű in-memory tárolás
+
+app.get('/api/recipes', (req, res) => {
+  res.json(recipes);
+});
+
+app.post('/api/recipes', (req, res) => {
+  const recipe = req.body;
+  recipe.id = Date.now();
+  recipes.push(recipe);
+  res.status(201).json(recipe);
+});
+
+app.delete('/api/recipes/:id', (req, res) => {
+  const id = Number(req.params.id);
+  recipes = recipes.filter(r => r.id !== id);
+  res.status(204).end();
+});
+
+app.listen(3000, () => console.log('Server running at http://localhost:3000'));
+\end{verbatim}
+
+\subsection{Kliens: recept beküldése (POST)}
+\begin{verbatim}
+const form = document.querySelector('#addRecipeForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = {
+    title: form.title.value,
+    ingredients: form.ingredients.value,
+    instructions: form.instructions.value
+  };
+  const res = await fetch('/api/recipes', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+  if (res.ok) window.location.href = '/recipes.html';
+});
+\end{verbatim}
+
+\subsection{Kliens: recept törlése (DELETE)}
+\begin{verbatim}
+async function removeRecipe(id) {
+  const res = await fetch(`/api/recipes/${id}`, { method: 'DELETE' });
+  if (res.ok) {
+    const el = document.querySelector(`#recipe-${id}`);
+    if (el) el.remove();
+  }
+}
+\end{verbatim}
+
+\subsection{Kliens: receptek betöltése (GET)}
+\begin{verbatim}
+async function loadRecipes() {
+  const res = await fetch('/api/recipes');
+  const recipes = await res.json();
+  // egyszerű render például:
+  const list = document.querySelector('#recipesList');
+  list.innerHTML = recipes.map(r => `
+    <li id="recipe-${r.id}">
+      <h3>${r.title}</h3>
+      <button onclick="removeRecipe(${r.id})">Törlés</button>
+    </li>
+  `).join('');
+}
+document.addEventListener('DOMContentLoaded', loadRecipes);
+\end{verbatim}
+
+\paragraph{Miért emeltem ki ezeket a kódrészleteket?}
+Az itt bemutatott példák lefedik az alkalmazás alapvető működését: a szerver (server.js) szolgálja ki a statikus fájlokat és biztosítja az API végpontokat, a kliensoldali POST művelet létrehozza az új recepteket, a DELETE kezeli a törlést és az UI frissítését, míg a GET felel a receptek lekéréséért és megjelenítéséért. Ezek megértése elengedhetetlen a hibakereséshez, a funkcionalitás bővítéséhez és a biztonsági/validációs rétegek hozzáadásához. A példák egyszerűsítettek, de könnyen kiterjeszthetők tartós tárolásra (adatbázis), autentikációra és részletes hibakezelésre.
+
+\end{document}

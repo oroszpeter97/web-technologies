@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Recipe Site — Recipes</title>
+	<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+	<header>
+		<h1>Recipe Site</h1>
+		<img src="resources/header.jpg" alt="Recipe Site" style="max-width:100%; height:auto; display:block;">
+	</header>
+
+	<nav aria-label="Main navigation">
+		<ul style="margin:0; padding:0; list-style:none; display:flex; gap:1rem;">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="recipes.html" aria-current="page">View Recipes</a></li> <!-- marked current page -->
+			<li><a href="add-recipes.html">Add Recipe</a></li>
+			<li><a href="remove-recipe.html">Remove Recipe</a></li>
+			<li><a href="tips.html">Cooking Tips</a></li>
+		</ul>
+	</nav>
+
+	<main class="single-column">
+		<!-- heading for the recipes region -->
+		<h2 id="recipes-heading">Recipes</h2>
+
+		<div id="recipes-list" aria-live="polite" aria-labelledby="recipes-heading">
+			<!-- placeholder shown when there are no recipes -->
+			<p role="status">No recipes available yet. <a href="add-recipes.html">Add your first recipe</a>.</p>
+			<!-- actual recipes will be injected here by scripts/load-recipes.js -->
+		</div>
+
+		<aside aria-label="Related">
+			<h4>Quick tips</h4>
+			<p><a href="add-recipes.html">Submit your recipe</a> · <a href="remove-recipe.html">Remove a recipe</a> · <a href="index.html">Back to home</a></p>
+		</aside>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 Simple Recipe — Student Assignment</p>
+	</footer>
+
+	<script src="scripts/load-recipes.js"></script>
+</body>
+</html>

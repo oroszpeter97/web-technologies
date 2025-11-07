@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Recipe Site — Remove Recipe</title>
+	<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+	<header>
+		<h1>Recipe Site</h1>
+		<img src="resources/header.jpg" alt="Recipe Site" style="max-width:100%; height:auto; display:block;">
+	</header>
+
+	<nav aria-label="Main navigation">
+		<ul style="margin:0; padding:0; list-style:none; display:flex; gap:1rem;">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="recipes.html">View Recipes</a></li>
+			<li><a href="add-recipes.html">Add Recipe</a></li>
+			<li><a href="remove-recipe.html">Remove Recipe</a></li>
+			<li><a href="tips.html">Cooking Tips</a></li> <!-- added -->
+		</ul>
+	</nav>
+
+	<main class="single-column">
+		<article>
+			<header>
+				<h2>Remove a Recipe</h2>
+				<p>Select recipes from the list and toggle selection to mark them for removal.</p>
+			</header>
+
+			<section>
+				<ul id="remove-list" class="recipe-list" aria-live="polite"></ul>
+				<p id="remove-note" style="font-size:0.9rem; color:#555; margin-top:0.5rem;">Selected items are highlighted.</p>
+			</section>
+
+			<footer>
+				<p>Confirm before deleting.</p>
+			</footer>
+		</article>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 Simple Recipe — Student Assignment</p>
+	</footer>
+
+	<script src="scripts/remove-recipes.js"></script>
+</body>
+</html>
